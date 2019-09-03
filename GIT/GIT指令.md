@@ -8,6 +8,8 @@
 
 ###  反馈
 nothing to commit   working tree clean   代码没有修改，没有必要提交
+工作区只显示一个分支
+型号表示当前分支
 
 
 ### 基本命名
@@ -23,6 +25,7 @@ git reset --hard '版本号'  转跳到某一个版本
 git branch 查看当前分支
 git checkout -b '分支名'  创建一个分支
 git checkout '分支名'   切换分支
+git merge '分支名'  合并分支
 
 
 ###
