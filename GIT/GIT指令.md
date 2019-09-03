@@ -25,7 +25,7 @@ git reset --hard '版本号'  转跳到某一个版本
 git branch 查看当前分支
 git checkout -b '分支名'  创建一个分支
 git checkout '分支名'   切换分支
-git merge '分支名'  合并分支
+<!-- git merge '分支名'  合并分支 -->
 
 
 ###
