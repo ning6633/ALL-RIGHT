@@ -16,3 +16,7 @@ git status  查看当前状态（分支）
 git add .  将被修改的文件从工作区放到暂存区
 git commit -m'注释'    将文件从暂存区放到本地仓库
 git push origin master  将本地仓库里的文件提取到远程仓库
+
+###
+master分支
+默认管理只有一个分支，叫做master
