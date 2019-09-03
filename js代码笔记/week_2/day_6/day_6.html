@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function main(){
+				var _boy=document.getElementById("slider");
+				_boy.style.width="10px";
+				_boy.style.height="10px";
+				_boy.style.borderRadius="50%";
+				_boy.style.background="green";
+				_boy.style.position="absolute";
+				_boy.style.left="0";
+				_boy.style.top="0";
+				function fn(){
+					_boy.style.left=_boy.offsetLeft+5+"px";
+					var i=1;
+					if(_boy.offsetLeft>=600){
+						
+						i++;
+						_boy.style.left=_boy.offsetLeft-200+"px";
+						
+					}
+				}
+				fn();
+				
+				
+				400){
+						window.clearInterval(_timer1);
+						var _timer2=window.setInterval(function(){
+						_slider.style.left=_slider.offsetLeft-5+"px";
+						if(_slider.offsetLeft<=0){
+							window.clearInterval(_timer2);
+							var _timer3=window.setInterval(function(){
+							_slider.style.top=_slider.offsetTop-5+"px";
+							if(_slider.offsetTop<=0){
+								window.clearInterval(_timer3);
+						}
+						},10)
+						
+						}
+						},20)
+						
+					}
+					},30)
+				}
+			},40)
+		}
+		window.onload=main; 
+				
+				window.setInterval(fn,10);
+			}
+			window.onload=main;
+		</script>
+	</head>
+	<body>
+		
+		<div id="slider"></div>
+	</body>
+</html>

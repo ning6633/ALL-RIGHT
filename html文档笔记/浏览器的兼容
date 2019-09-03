@@ -1,0 +1,70 @@
+# 浏览器的兼容
+
+## 浏览器的种类
+
+...........
+
+## 常用浏览器
+
+internet explorer、  safair   firefox、chrome、opera、
+
+五个内核要兼容
+1、Trident (MSHTML)      （三叉戟...）IE、maxthon（遨游）、腾讯   IE
+2、Gecko  (壁虎)     优势是跨平台   火狐  
+3、Presto  （迅速的）  以前opera
+4、Webkit  （Safair 内核  ， 以前 Chrome  内核原型，苹果公司自己的内核，也是						Safair浏览器使用的内核）
+5、Blink（由Google 和Opera Software  开发的浏览器排版引擎  opera）
+
+## 过滤器
+
+CSS  Hack   和  Filter
+CSS Hack：是补丁    个人情况      降低了代码的可读性，增加代码负担
+
+## IE6常见bug
+
+1、**图片有边框  BUG**  （图片被  <u>*超链接*</u>  包裹会出现   IE10  以下都有这个问题）
+		解决方法：加上  img{border:none  /  0;}(   去掉边框)
+2、**图片的间隙  BUG**    （被块儿元素包裹的图片会有3px左右的间隙）
+		解决方法：1>将块元素转换类型display：block；
+							 2>vertical-align：top； 
+3、**双倍浮向**（双边距bug，只会出现在IE6）元素浮动后，给相同的margint左右，		第一个会元素出现双倍margin左右
+		解决方法：给浮动的元素加上display：inline；
+4、**默认高度问题（IE6、7**）
+		元素内容设置高度小于18px，  浏览器会按照18px左右解析
+		解决方法：给元素设置overflow：heidden；或font-size：0；
+5、**表单元素行高对齐不一致**
+		表单元素对齐不一致
+			解决办法：给表单元素添加浮动：float：left；
+		表单元素的行高问题
+			在IE9以下，内容在文本框的左上角显示 
+				解决办法：设置行高   
+		按钮的白框问题：
+				在IE8以下按钮自带两条边框
+				解决办法：border：none；     如果要加边框   就在按钮外面套一个块元素							加边框
+6、**按钮元素默认大小不一**
+		各个浏览器中元素大小不一致
+		1、统一大小/用a标记模拟
+		2、input外面套一个标签，不设大小，给外面的标签加边框
+		3、
+7、**百分比bug**（IE8以下）
+		当父元素的宽度是100%，子元素的宽度是50%，一个左浮动，一个右浮动，在IE7及以下的扣篮器50%+50%大于100%  右浮动的元素会掉下来
+			解决办法：给右浮动的元素设置clear：right；
+
+8、**鼠标指针bug**
+hand属性只有IE9以下的浏览器识别
+cursor：pointer/hand/help（问号）/ text（光标）；
+
+9、**透明属性**
+opacity：value；只有IE 高版本识别 8及以下不识别  
+IE浏览器写法：filter：alpha（opacity=value）；取值范围0-100
+解决方法：两个都设置
+
+10、**li列表的bug**
+
+当设置导航的时候，给a设置浮动，不给li设置，IE5、7浏览器会以梯状出现
+		解决方法：给li设置float
+
+11、**margin-top 的父传递**
+子元素浮动       父元素padding
+
+12、**margin的  重叠  bug**

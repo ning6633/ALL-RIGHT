@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script type="text/javascript">
+        HTMLElement.prototype.css=function(_css){
+            for(let _k in _css){
+                this.style[_k]=_css[_k];
+            }
+        }
+        class Sport{
+            constructor(_target){
+                this.kuilei=_target;
+                this.timer=0;
+            }
+            animate(_fangxiang){
+                let _me=this;
+                _me.timer=window.setInterval(function(){
+                    _me.kuilei.style[_fangxiang]=_me.kuilei["offset"+_fangxiang[0].toUpperCase()+_fangxiang.slice(1)]+10+"px";
+                    if(_me.kuilei["offset"+_fangxiang[0].toUpperCase()+_fangxiang.slice(1)]>=500){
+                        window.clearInterval(_me.timer);
+                    }
+                },100);
+            }
+        }
+        function _style(){
+            var _body=document.getElementsByTagName("body")[0];
+            var _div=document.createElement("div");
+            var _div2=document.createElement("div");
+            _body.appendChild(_div);
+            _body.appendChild(_div2);
+            _div.css({
+                width:"200px",
+                height:"200px",
+                background:"orange",
+                position:"absolute",
+                left:"200px",
+                top:0
+            });
+            _div2.css({
+                width:"200px",
+                height:"200px",
+                background:"orange",
+                position:"absolute",
+                left:0,
+                top:"200px"
+            });
+        }
+
+       
+
+        function move(){
+            _style();
+           new Sport(document.getElementsByTagName("body")[0].children[0]).animate("left");
+           new Sport(document.getElementsByTagName("body")[0].children[1]).animate("top");
+        }
+
+
+
+
+        
+        function main(){
+           move(); 
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function main(){
+				console.log(document.getElementById("first"));//寻找ID名为first的元素
+			console.log(document.getElementsByTagName("div"));//寻找HTML名为div的元素
+				console.log(document.getElementById("first").getElementsByTagName("span"));//找到ID名为first元素下的span标签
+				console.log(document.getElementsByClassName("thred"));//找到Class名为thred的元素
+				console.log(document.getElementsByName("dier"));//通过元素的Name名来获取DOM元素
+				console.log(document.querySelector("span"));//通过选择器来获取DOM元素
+				//增
+				console.log(document.createElement("span"));//新建一个DOM元素
+				console.log(document.getElementById("first").appendChild(document.createElement("img")));//appendChlid添加至。。。 在ID名为first的元素下添加一个新建的“img”标签
+			var _first=document.getElementById("first");
+			var _img=document.createElement("img");
+			var _san=document.getElementById("san");
+			_first.insertBefore(_img,_san);//在ID名为first的元素下创建一个img ，并且放在ID名为san的元素之前
+			_first.removeChild(_san);//在ID名为first的元素下,删除掉ID名为san的元素
+			_first.setAttribute("class","123");//在ID名为first的元素下,创建一个名字为Class、属性值为123的属性
+			console.log(_first.getAttribute("id"));//获取属性节点的值  即获取_first节点的ID名
+			_first.className="hei"//非W3C标准  创建一个Class名为hei的属性
+			_first.removeAttribute("class");//删除name
+			var _text=document.createTextNode("1234567890");//新建一个文本节点  
+			_first.appendChild(_text);//添加文本节点至  ID名为first的元素
+			_first.removeChild(_text);//在ID名为first的元素下，删除“1234567890”的节点
+			_first.innerText="34543";//会覆盖原有代码  在ID名为first的元素下 添加字符串34543  保留ID名为first的元素
+			_first.innerHTML="<div>I'm your father</div>";//会覆盖原有代码  在ID名为first的元素下 添加HTML代码  保留ID名为first的元素
+			_first.outerHTML="<ul><li>btfgiurwehtoiurehtui</li></ul>";//删除原有块  并覆盖掉  不保留原有的ID名为first的元素
+			var _second=document.getElementById("second");
+			var _txt=document.getElementById("text");
+			var _four=document.getElementById("four");
+			document.getElementById("lianjie").onclick=function(){
+				window.location.href="day_5.html";
+			}*/
+			
+			}
+			window.onload=main;
+		</script>
+	</head>
+	<body>
+		<div id="first">
+			<span id="san"></span>
+		</div>
+		<div id="second">
+			<input type="text" name="dier" />
+		</div>
+		<div class="thred">
+			<span id="four" ></span>
+			<a href="#" id="lianjie">sssss</a>
+		</div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

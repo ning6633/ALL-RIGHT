@@ -1,0 +1,115 @@
+
+
+<html>
+	<head>
+	<style type="text/css">
+		html,body{
+			margin: 0;padding: 0;
+		}
+	</style>
+	<script type="text/javascript">
+		//javascript中的事件监听
+		//		addEventListener||attachEvent
+		//		addEventListener("click",function(),true);
+        //		有三个参数
+			//			事件、
+					//  函数、
+					//是否捕获
+		//      attachEvent("onclick",function(){});
+		//      		两个参数   事件类型
+		//						事件处理函数
+		
+		//    解决兼容问题：addEleventLIstener||attachEvent
+		
+		
+		//冒泡穿透
+		
+		
+		
+		function tuozhuai(){
+			var _inner=document.getElementById("inner");
+			_inner.onmousedown=function(e){
+				e=e||window.event;
+				_x=e.offsetX;
+				_y=e.offsetY;
+				document.onmousemove=function(e){
+					e=e||window.event;
+					_inner.style.left=e.clientX-_x+"px";
+					_inner.style.top=e.clientY-_y+"px";
+				};
+			};
+			_inner.onmouseup=function(){
+				document.onmousemove=null;
+			};
+		}
+			
+			
+			function green(){
+			var _inner=document.getElementById("middle");
+			_inner.onmousedown=function(e){
+				e=e||window.event;
+				_x=e.offsetX;
+				_y=e.offsetY;
+				document.onmousemove=function(e){
+					e=e||window.event;
+					_inner.style.zIndex="2";
+					_inner.style.left=e.clientX-_x+"px";
+					_inner.style.top=e.clientY-_y+"px";
+				};
+			};
+			_inner.onmouseup=function(){
+				document.onmousemove=null;
+			};
+		}
+			function tuozhuai2(){
+			var _inner=document.getElementById("out");
+			_inner.onmousedown=function(e){
+				e=e||window.event;
+				_x=e.offsetX;
+				_y=e.offsetY;
+				document.onmousemove=function(e){
+					e=e||window.event;
+					
+					_inner.style.left=e.clientX-_x+"px";
+					_inner.style.top=e.clientY-_y+"px";
+				};
+			};
+			_inner.onmouseup=function(){
+				document.onmousemove=null;
+			};
+		}
+		
+			function main(){
+//			var _inner=document.getElementById("inner");
+//				_inner.addEventListener("click",function(){
+//				alert("miss you");
+//				
+//			},false);
+//			var _middle=document.getElementById("middle");
+//				_middle.addEventListener("click",function(){
+//				alert("miss you");
+//				
+//			},false);
+//			var _out=document.getElementById("out");
+//				_out.addEventListener("click",function(){
+//				alert("miss you");
+//				
+//			},false);
+//			
+			
+			green();
+			tuozhuai();
+			tuozhuai2();
+			}
+			window.onload=main;
+		
+	</script>
+	</head>
+	<body>
+		<div id="out"  style="width:500px;height:500px;background:pink;position:absolute;"></div>
+			<div id="middle" style="width:300px;height:300px;background:green;position:absolute;"></div>
+				<div id="inner" style="width:100px;height:100px;background:red;position:absolute;"></div>
+			
+		
+	</body>
+</html>

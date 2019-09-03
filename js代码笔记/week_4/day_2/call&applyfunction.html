@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        function Animal(){
+            this.leg=4;
+            this.eye=2;
+            this.fly();//调用
+        }
+        function Mosquito(){
+            this.fly=function(){
+                console.log("this animal can fly");
+            };
+        }
+
+
+
+
+        Function.prototype.pointer=function(_target){
+            _target.fx=this;
+            return function(){
+                _target.fx();
+            }
+        };
+
+
+
+        function main(){
+            var _animal=new Animal();
+            Mosquito.apply(_animal);
+            //var _timer=window.setInterval(Animal.pointer(_mosquito),200);
+            var _timer=window.setInterval(_animal.fly(),1000);
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

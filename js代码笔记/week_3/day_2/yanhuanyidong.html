@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				margin: 0;padding: 0;
+			}
+			#cxk{
+				width: 66px;
+				height: 45px;
+				background: url(images/1.gif) no-repeat scroll center;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+			function main(){
+				var _points=[];
+				var _points2=[];
+				document.onmousedown=function(){
+					document.onmousemove=function(e){
+						e=e||window.event;
+						_points.push([e.clientX,e.clientY]);
+					}
+				};
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					var _cxk=document.getElementById("cxk");
+					var _point;
+					var _timer=window.setInterval(function(){
+						_point=_points.shift();
+						_cxk.style.left=_point[0]+"px";
+						//_cxk.style.left=_point[1]+"px";
+						if(_points.length<=0){
+							window.clearInterval(_timer);
+						}
+					},10);
+				};
+			}
+			window.onload=main;
+		</script>
+	</head>
+	<body>
+		<div id="cxk"></div>
+	</body>
+</html>

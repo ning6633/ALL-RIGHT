@@ -1,0 +1,97 @@
+<html>
+<head>
+	<script type="text/javascript">
+	
+		/*function _case(h_num,l_num,_sum,h_,l_){
+			for(var h=-h_;h<=h_num;h++){
+				for(var l=-l_;l<=l_num;l++){
+					if(Math.abs(h)+Math.abs(l)<=_sum){
+						document.write("*");
+					}else{
+						document.write("-");
+					}
+				}
+				document.write("<br/>");
+			}
+			return h_;
+		}
+		_case(10,10,10,0,0);
+		document.write("<br />");
+		_case(15,15,15,0,0);
+		document.write("<br />");
+		_case(20,20,20,20,20);
+		document.write("<br />");
+		_case(15,15,15,15,15);*/
+		/*
+		function _case_1(_value){
+			for(var h=1;h<=_value;h++){
+					for(var l=1;l<=h;l++){
+						document.writeln(h+"*"+l+"="+(h*l));
+					}
+				document.write("<br />");
+			}
+		}
+		_case_1(3);
+		_case_1(7);
+		_case_1(10);*/
+		/*
+		function _case_2(i){
+		var s=1;
+			for(var i;i>0;i--){
+				s*=i;
+			}
+			return s;
+		}
+		document.write(_case_2(3)+_case_2(5));
+		*/
+		/*function fn(n){
+			var _summary=1;
+			for(var i=n;i>0;i--){
+				_summary*=i;
+			}
+			console.log(_summary);
+			return fn;
+		}
+		fn(3)(5);//===fn(5);*/
+		/*function fn(_l,_t){
+			var _l,_t;
+			
+			document.write('<div style="width:10px;height:10px;background:pink;position:absolute;left:'+_l+'px;top:'+_t+'px;"></div>');
+			return fn;
+		}
+		fn(100,100)(200,200);*/
+		
+		for(var i=0;i<=100;i++){
+		var r=300;
+			var x=Math.cos(i*2*Math.PI/100)*r+400;
+			var y=Math.sin(i*2*Math.PI/100)*r+400;
+			document.write('<div style="width:5px;height:5px;border-radius:50%;background:green;list-style:none;position:absolute;left:'+x+'px;top:'+y+'px;"></div>');
+		}
+		
+		
+		
+		
+		/*function _case(x,y){
+			document.write('<div style="width:5px;height:5px;background:green;position:absolute;left:'+x+'px;top:'+y+'px;"></div>');
+			return _case;
+		}
+		
+		function _yuan(){
+			for(var h=1;h<=100;h++){
+					var x=Math.sin(h/100);
+				for(var l=1;l<=x;l++){
+					var y=Math.cos(l/100);
+					if(x==y){
+						_case(x,y);
+					}
+				}
+				
+			}
+			
+		}
+		_yuan();*/
+	
+	</script>
+</head>
+<body></body>
+</html>

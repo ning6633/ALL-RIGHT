@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>call & apply 的继承 </title>
+   <script type="text/javascript">
+   function Animal(){
+       this.leg=4;
+       this.eye=2;
+       this.eat=function(){
+           console.log("fly");
+       };
+   }
+   function Cat(){
+       this.fly=function(){
+           return "can't fly";
+       };
+   }
+    function main(){
+        //console.log(new Cat().fly());
+        var _cat=new Cat();
+        Animal.call(_cat);
+        console.log(_cat);//将原有类中所有的内容  复制粘贴过来，归为自己用 
+
+        Cat.prototype=new Animal();
+        console.log(new Cat());//不会改变原有类中this的只想
+    }
+       window.onload=main;
+   </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        class Canonical{
+            constructor(){
+                this.container=document.getElementById("demo");
+                this.yanzheng();
+            };
+            yanzheng(){
+                let _me=this.container;
+                let _reg=/^\w+@\w+(\.\w+)+&/g;
+                this.container.children[4].onclick=function(){
+                    if(_me.children[0].value=="111111"&&_me.children[2].value=="111111"){
+                        alert("登录成功！");
+                       window.location.href="tuozhuai.html";
+                        //console.log(_me.children[0].value);
+                    }else{
+                        alert("账号或密码错误！");
+                    }
+                };
+            };
+        }
+        function main(){
+            new Canonical();
+        }
+        window.onload=main;
+    </script>
+</head>
+<body style="background: #000;">
+    <div id="demo" style="width: 300px;height: 200px;position: absolute;left: 0;top: 0;right: 0;bottom: 0;margin: auto;border:2px solid silver;background: #fff;text-align: center;">
+        <input type="text" placeholder="请输入QQ账号" style="background: #fff; width:175px;height:30px;margin-top:30px;text-align: center;">
+        <br />
+        <input type="password" placeholder="请输入密码" style="background: #fff; width:175px;height:30px;margin-top:30px;text-align: center;">
+        <br />
+        <input type="submit" value="点击登录" style="background: #fff; width:70px;height:30px;margin-top:30px;text-align: center;border:1px solid slategrey">
+    </div>
+</body>
+</html>

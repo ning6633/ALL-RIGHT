@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        HTMLElement.prototype.css=function(_css){
+            for(let _k in _css){
+                this.style[_k]=_css[_k];
+            }
+        }
+        class Delete{
+            constructor(){
+               this.onc(); 
+            };
+            onc(){
+              document.oncontextmenu=function(e){
+                e=e||window.event;
+                if(e.preventDefault){
+                    e.preventDefault();
+                }else{
+                    e.returnValue=false;
+                }
+                let _span=document.createElement("span");
+                _span.css({
+                    display:"block",
+                    width:"50px",
+                    height:"20px",
+                    textAlign:"center",
+                    background:"#ccc",
+                    color:"#000",
+                    fontSize:"10px",
+                    lineHeight:"20px",
+                    position:"absolute",
+                });
+                _span.innerText="删除";
+                _span.style.left=e.offsetX+"px";
+                _span.style.top=e.offsetY+"px";
+                document.getElementsByTagName("body")[0].appendChild(_span);
+                if(document.getElementsByTagName("body")[0].children.length>=2){
+                    document.getElementsByTagName("body")[0].removeChild(document.getElementsByTagName("body")[0].children[0]);
+                }
+                _span.onmousedown=function(){
+                    _span.parentNode.removeChild(_span);
+                };
+              };
+
+            };
+        }
+
+        function main(){
+            new Delete();
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+# 第二天
+
+**表单**
+
+用来收集用户信息
+
+< form     name="表单名称"    method="{     **post**   安全性相对get较高、数据量相对来说比较大   /   **get**   传输不安全、传送量小，不推荐   但是可以 收东西    )}    **数据传送方式**"   action="    数据传送地址  "> < /form>
+
+get 获取数据    post  传送数据
+
+< form  name=""   **method**=""    **action**=""></ form>
+
+**input**     表单控件         
+            
+
+​           name  是给开发人员那看的
+
+**type**的类型
+文本           text      value(显示内容  要占位)   placeholder（提示信息  不占位）  maxlength(规定输入字符的个数)  size（框子大小  一般不用） 
+密码              password     placeholder
+重置按钮         reset
+按钮               submit   value改
+空按钮                   button 
+单选按钮         radio       要规定name           **checked**默认
+多选框             checkbox      规定name     **checked="checked"**是默认选中     
+下拉     <  select     name="">
+				< option    **selected**>内容< /option>    **selected 默认选项**
+				< /select>
+				下拉列表的默认选项是**selected**
+多行文本框（文本域）
+				< textarea   name="textareal"  cols="字符宽度"  rows="行数">
+
+​				
+
+​					< /textarea>
+
+## < div>< /div>:    把网页分块儿  换行
+
+< span>< /span>  ：  不换行
+
+margin  外边距
+
+padding    内边距
+
+auto      外边距的左右居中
+
+display：block；把内联元素（不能自动环湖赛那个）和块儿元素（可以自动换行）    可以用来填充
+
+
+
+
+
+logo        nav         (banner )大图       news     bottom
+

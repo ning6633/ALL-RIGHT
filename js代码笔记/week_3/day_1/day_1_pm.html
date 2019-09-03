@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		//ctrl  和  enter  
+		function anjian(e){
+			document.onkeydown=function(e){
+			var _one=document.getElementById("one");
+			var _input=document.getElementById("input");
+				e=e||window.event;
+				console.log(_input.value);
+				if((e.keyCode||e.which)==13){
+					_one.innerText=_input.value;
+				}
+				if(String.fromCharCode(e.keyCode||e.which)==="A"){
+					alert("a");
+				}
+			};
+		}
+		//事件对象的key属性
+		function keyy(){
+			document.onkeydown=function(e){
+				e=e||window.event;
+			alert(e.key);
+			};
+		}
+		//获取事件源对象e.target||e.srcElement
+		function _target(){
+			_one=document.getElementById("one");
+			_one.onclick=function(e){
+				e=e||window.event;
+				_target=e.target||e.srcElement;
+				console.log(_target);
+				console.log(this);
+			}
+			/**this特性：
+					1、不能被赋值
+					2、总是指向当前对象
+					3、this是在运行时才会被系统赋值
+					4、函数可以改变this指向
+				如何确定this指向
+					1、看作用域
+					2、找当前代码块的调用对象
+			**/
+			}
+		function _this(){
+			var _one=document.getElementById("one");
+			var _input=document.getElementById("input");
+			_one.onclick=function(){
+				console.log(this);
+			}
+			//表单元素如如完成时  触发
+			_input.onchange=function(){
+				
+				console.log(_input.value);
+			}
+		}
+		function mouse(_x,_y){
+			var _body=document.getElementsByTagName("body")[0];
+			var _div=document.createElement("div");
+			var _eee=document.getElementById("one");
+			
+			var _input=document.getElementById("input");
+			console.log(_eee);
+			_div.id="two";
+			_body.appendChild(_div);
+			
+            _div.style.position="fixed";
+            _div.style.width="80px";
+            _div.style.height="30px";
+            _div.style.border="solid 1px #ddd";
+            _div.style.padding="1px";
+            _div.style.left=_x+"px";
+           _div.style.top=_y+"px";
+		   _div.style.background="#ccc";
+		   _div.innerText="删除";
+		   _div.style.fontSize="18px"
+		   _div.style.lineHeight="30px";
+		   _div.style.textAlign="center";
+		   _div.style.color="#000";
+			_div.onclick=function(e){
+			e=e||window.event;
+				_input.removeChild(_input.value);
+			  // e.target.parentNode.removeChild(e.target);//从事件源对象的父元素中移除事件源对象
+            };
+			}
+           
+			
+		
+		
+		function main(){
+		
+			//anjian();
+			//keyy();
+			//_target();
+			_this();
+			document.oncontextmenu=function(e){
+				e=e||window.event;
+				e.preventDefault?e.preventDefault():e.returnValue=false;//解决兼容问题
+				mouse(e.clientX,e.clientY);
+				console.log(e.button);
+			}
+		}
+			window.onload=main;
+		</script>
+	</head>
+	<body>
+		<div id="one">2222</div>
+		<input type="text" id="input" value="12312312"/>
+	</body>
+</html>		

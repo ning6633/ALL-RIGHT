@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+    HTMLElement.prototype.css=function (_css){
+        for(let _k in _css){
+            this.style[_k]=_css[_k];
+        }
+    }
+
+    function Game(){
+        
+        this.create=function(){
+            
+            var _timer=window.setInterval(function(){
+                var _div=document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
+                    _div.css({
+                    width:"100px",
+                    height:"100px",
+                    background:"rgba(255,182,193,0.3)",
+                    border:"1px solid #000",
+                    textAlign:"center",
+                    lineHeight:"100px",
+                    fontSize:"50px",
+                    color:"#000",
+                    position:"absolute",
+                    left:Math.random()*900+100+"px",
+                    top:0
+                    });
+                    _div.innerText=String.fromCharCode(65+Math.floor(Math.random()*26));;
+                },1000);
+            }
+        
+
+        this.move=function(){
+            new Game().create();
+            var _div=document.getElementsByTagName("body")[0].children;
+            var _height=document.documentElement.clientHeight||document.body.clientHeight;
+            var _timer=window.setInterval(function(){
+                    for(var i=0;i<_div.length;i++){
+                        _div[i].style.top=_div[i].offsetTop+2+"px";
+                        if(_div[i].offsetTop>=_height-130){
+                        //_div[i].style.top=_height-130+"px";
+                        document.getElementsByTagName("body")[0].removeChild(_div[i]);
+                        }
+                    }
+                 },5);
+            }
+        this.remove=function(){
+            document.onkeydown=function(e){
+                e=e||event;
+                var _body=document.getElementsByTagName("body")[0];
+                var _div=document.getElementsByTagName("body")[0].children;
+                for(var i=0;i<=_div.length;i++){
+                    if(_div[i].innerText==String.fromCharCode(e.keyCode||e.which)){
+                        _body.removeChild(_div[i]);
+                        break;
+                        }
+                    } 
+                }
+            }
+        this.over=function(){
+            new Game().move();
+            new Game().remove();
+            }
+    }
+    
+        //创建一个随机出现的块
+        
+        //乡下移动
+        
+        //删除
+        
+        function main(){
+          var _game=new Game();
+                _game.over();
+                
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		function move(_X,_Y){
+			
+			
+			}
+			
+		
+		
+		
+			function main(){
+			var _body=document.getElementsByTagName("body")[0];
+			var _div=document.createElement("div");
+			_body.appendChild(_div);
+			_div.style.width="100px";
+			_div.style.height="100px";
+			_div.style.background="pink";
+			_div.style.position="absolute";
+			
+			_div.style.borderRadius="50%";
+			_body.onmousemove=function(e){
+			//var _body=document.getElementsByTagName("body")[0];
+			
+			
+				e=e||window.event;
+				_div.style.left=e.clientX-50+"px";
+			_div.style.top=e.clientY-50+"px";
+			
+				//move(e.clientX,e.clientY);
+			}
+				
+			}
+			window.onload=main;
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>加速运动</title>
+    <script type="text/javascript">
+        HTMLElement.prototype.css=function(_css){
+                                                        for(let _k in _css){
+                                                        this.style[_k]=_css[_k];
+                                                        }
+                                                    }
+
+        function create(){
+            var _div=document.createElement("div");
+            _div.css({
+                width:"10px",
+                height:"10px",
+                background:"red",
+                borderRadius:"50%",
+                position:"absolute",
+                // left:"0",
+                // top:"0"
+                left:"700px",
+                top:"350px",
+                
+            });
+            _div.id="one";
+            document.getElementsByTagName("body")[0].appendChild(_div);
+        }
+        function stop(){
+            
+          
+                    for(var  i=1;i<=120;i++){
+                        var _span=document.createElement("span");
+                                _span.css({
+                                    display:"block",
+                                    width:"5px",
+                                    height:"5px",
+                                    background:"green",
+                                    borderRadius:"50%",
+                                    position:"absolute",
+                                    
+                                });
+                    _span.style.left=300*Math.cos(i*8*Math.PI/60)+700+"px";
+                    _span.style.top=300*Math.sin(i*8*Math.PI/60)+350+"px";
+                    i++;
+                    document.getElementsByTagName("body")[0].appendChild(_span);
+                    }
+                    
+        }
+        function move(){
+            create();
+             var _div=document.getElementById("one");
+             var i=0;
+                var _timer=setInterval(function(){
+
+                   
+                  // if(i%5==0){
+                    
+                  // }
+                  
+                    _div.style.left=300*Math.cos(i*2*Math.PI/60)+700+"px";
+                    _div.style.top=300*Math.sin(i*2*Math.PI/60)+350+"px";
+                    i++;
+                },1000);
+
+
+
+            //     var i=0, f=1;
+            // var _timer=setInterval(function(){
+            //     _div.style.left=_div.offsetLeft+(i++)*f+"px";
+            //     if(_div.offsetLeft>=800){
+            //         f=-1;
+            //         _div.style.left=_div.offsetLeft+(i++)*f+"px";
+                   
+            // }
+            // if(_div.offsetLeft<0){
+            //         window.clearInterval(_timer);
+            //     }
+               
+            // },50);
+            //     var a=0,b=1;
+            // var _timer=setInterval(function(){
+            //     a=a+0.01*b;
+            //     _div.style.opacity=a;
+               
+            //     if(a<=0.01){
+            //         b=1;
+            //     }
+            //     if(a>=1){
+            //         b=-1;
+            //     }
+            // },1);
+           
+
+        }
+
+        function main(){
+            stop();
+           move();
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

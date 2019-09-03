@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function _case1(){
+				var _a=new Date();
+				var _year=_a.getFullYear(); 
+				var _month=_a.getMonth()+1>9?_a.getMonth()+1:"0"+(_a.getMonth()+1);
+				var _date=_a.getDate()>9?_a.getDate():"0"+_a.getDate();
+				var _hours=_a.getHours()>9?_a.getHours():"0"+_a.getHours();
+				var _minutes=_a.getMinutes()>9?_a.getMinutes():"0"+_a.getMinutes();
+				var _seconds=_a.getSeconds()>9?_a.getSeconds():"0"+_a.getSeconds();
+				var _day=_a.getDay();
+				switch(_day){
+					case 0:_day="星期天";
+					break;
+					case 1:_day="星期一";
+					break;
+					case 2:_day="星期二";
+					break;
+					case 3:_day="星期三";
+					break;
+					case 4:_day="星期四";
+					break;
+					case 5:_day="星期五";
+					break;
+					case 6:_day="星期六";
+					break;
+					
+				}
+				document.write(_year+"-"+_month+"-"+_date+"&nbsp;&nbsp;&nbsp;&nbsp;"+_hours+"-"+_minutes+"-"+_seconds+"&nbsp;&nbsp;&nbsp;&nbsp;"+_day);
+			}
+			_case1();
+			
+			function _case2(){
+				var _date=new Date();
+				var _t=_date.getTime()+3*24*60*60*1000;
+				function fn(){
+					_date=new Date();
+					var tmp=_t-_date.getTime();
+					var _h=Math.floor(tmp/60/60/1000);
+					var _m=Math.floor((tmp-_h*60*60*1000)/60/1000);
+					var _s=Math.floor((tmp-_h*60*60*1000-_m*60*1000)/1000);
+					return document.getElementById("daojishi").innerText="剁手倒计时："+_h+":"+_m+":"+_s;
+				}
+				
+				window.setInterval(fn,1000);
+			}
+			window.onload=_case2;
+		</script>
+	</head>
+	<body>
+		<div Id="daojishi"></div>
+	</body>
+</html>

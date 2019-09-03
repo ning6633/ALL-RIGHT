@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+    HTMLElement.prototype.css=function(_css){
+        for(let _k in _css){
+            this.style[_k]=_css[_k]
+        }
+    }
+
+
+
+        //点击评分
+        function Start(_body){
+            this.container=_body;
+            //创建
+            this.create=function(){
+                let _div=document.createElement("div");
+                _div.css({
+                    width:"250px",
+                    height:"50px",
+                    background:"#ccc",
+                    position:"relative"
+                });
+                this.container.appendChild(_div);
+                let _span=document.createElement("span");
+                _span.css({
+                    display:"block",
+                    width:"0px",
+                    height:"50px",
+                    background:"yellow",
+                    position:"absolute"
+                });
+                _div.appendChild(_span);
+                for(let i=0;i<5;i++){
+                    let _img=document.createElement("img");
+                    _img.src="images/star.png"
+                    _img.css({
+                        width:"50px",
+                        height:"50px",
+                        float:"left",
+                        position:"absolute",
+                        left:i*50+"px"
+                    });
+                    _div.appendChild(_img);
+                }
+            };
+
+            this.events=function(){
+                let _list=this.container.children[0].children;
+                
+                for(let i=1;i<_list.length;i++){
+                    _list[i].onclick=function(){
+                        _list[0].style.width=i*this.offsetWidth+"px";
+                    }
+                }
+            };
+            this.init=function(){
+                this.create();
+                this.events();
+            };
+            this.init();
+        }
+        function main(){
+            var _body=document.getElementsByTagName("body")[0];
+            new Start(_body);
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+
+</body>
+</html>

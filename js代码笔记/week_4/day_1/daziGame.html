@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;padding: 0;
+        }
+        div{
+            width: 50px;
+            height: 50px;
+            background: rgba(255,182,193,0.7);
+            border:1px solid #000;
+            text-align: center;
+            font-size: 25px;
+            line-height: 50px;
+            position:absolute;
+        }
+    </style>
+    <script type="text/javascript">
+    function Fen(){
+        this.a=0;
+        this.sum=function(_a){
+            this.a+=_a;
+        };
+    }
+
+    function Game(){
+        this.timer1=0;
+        this.timer2=0;
+        //创建一个随机出现的块
+        this.body=document.getElementsByTagName("body")[0];
+        this.width=document.documentElement.clientWidth||document.body.clientWidth;
+        this.height=document.documentElement.clientHeight||document.body.clientHeight;
+        this.create=function(){
+            var _div=document.getElementsByTagName("body")[0].appendChild(document.createElement("div"));
+            _div.style.left=Math.floor((this.width-202)*Math.random())+"px";
+            _div.innerText=String.fromCharCode(65+Math.random()*26);
+            this.body.appendChild(_div);
+        };
+        //向下掉
+        this.drop=function(){
+            var _div=this.body.children;
+            //console.log(_div);
+            for(var i=0;i<_div.length;i++){
+                 _div[i].style.top=_div[i].offsetTop+5+"px";
+                if(_div[i].offsetTop>=this.height-52){
+                    this.body.removeChild(_div[i]);
+                    this.sum(-1);
+                    console.log(this.a);
+                }
+            }
+        };
+        this.events=function(){
+            var _me=this;
+            var b=0
+            document.onkeydown=function(e){
+                e=e||window.event;
+                for(var i=0;i<_me.body.children.length;i++){
+                    if(String.fromCharCode(e.keyCode||e.which)===_me.body.children[i].innerText){
+                        _me.body.removeChild(_me.body.children[i]);
+                        b=1;
+                        _me.sum(1);
+                        break;
+                    }
+                    }
+                    if(b===0){
+                        _me.sum(-1);
+                    }
+                    console.log(_me.a);
+            };
+            
+        };
+        this.init=function(){
+            var _me=this;
+            this.timer1=window.setInterval(function(){
+                _me.create();
+                
+            },500);
+            this.timer2=window.setInterval(function(){
+                _me.drop();
+            },10);
+            _me.events();
+        };
+    }
+    
+
+     function main(){
+         Game.prototype=new Fen();
+        var _game=new Game();
+        _game.init();
+        
+     }
+     window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

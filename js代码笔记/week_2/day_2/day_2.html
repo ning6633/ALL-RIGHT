@@ -1,0 +1,277 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			/*function _case1(){
+				var _arr1=new Array(9);
+				var _arr2=[4,8,8,6,9,5,7];
+				var _arr3=new Array(4,8,8,6,9,5,7);
+				console.log(_arr1,_arr2,_arr3);
+			}
+			_case1();
+			//遍历数组
+			function _case2(){
+				var _arr=[8,7,6,4,"s","e","q"];
+				for(var i=0;i<=_arr.length;i+=2){
+					console.log(_arr[i]);
+				}
+			}
+			_case2();
+			function _case3(){
+				var _arr=[2,8,5,3,9,1534,478,7,5,45,4];
+				for(var i=0;i<=_arr.length;i++){
+					if(i%2==0){
+						console.log(_arr[i]);
+					}
+				}
+			}
+			_case3();
+			//动态初始化数组
+			//
+			function _case4(){
+				var _arr=[];
+				for(var i=0;i<100;i++){
+					_arr[i]=900+i;
+				}
+				console.log(_arr);
+			}
+			_case4();
+			//随机数
+			function _case5(){
+				var _arr=[];
+				for(var i=0;i<10;i++){
+					_arr[i]=Math.random()*10000;
+				}
+				console.log(_arr);
+			}
+			_case5();*/
+			//修改
+			/*function fn(p){
+				p[0]=0;
+				p[1]=0;
+				p[2]=0;
+			}
+			
+			function _case5(){
+				var _arr=[];
+				_arr=[5,8,7,6,3,8];
+				fn(_arr);
+				console.log(_arr);
+			}
+			_case5();
+			//引用类型数据传参
+			function fx(p){
+				p=[7,8.5,4,1];
+			}
+			function _case6(){
+				var _arr=[200,300,500,100];
+				fx(_arr);
+				console.log(_arr[0])
+			}
+			_case6();*/
+			/*function fn(){
+				var _arr=[];
+				for(var i=0;i<10;i++){
+					_arr[i]=Math.floor(Math.random()*9000+1000);
+				}
+				return _arr;
+			}
+			
+			function _pao(_arr){
+			var _sum=null;
+			for(var n=0;n<=_arr.length;n++){
+				for(var i=_arr.length;i>n;i--){
+					if(_arr[i]<_arr[i-1]){
+						
+						_sum=_arr[i];
+						_arr[i]=_arr[i-1];
+						_arr[i-1]=_sum;
+					}
+				}	
+			}
+			console.log(_arr);
+			}
+			_pao(fn());
+			
+			
+			function _case7(){
+				var _arr=fn();
+				
+				_pao(_arr);
+			}
+			_case7();
+			//冒泡排序
+			
+			var a=[4,23,3,8,0];
+			function _maopao(){
+				for(var i=0;i<a.length-1;i++){
+					for(var h=0;h<a.length;h++){
+						var tmp=null;
+						if(a[h]>a[h+1]){
+							tmp=a[h];
+							a[h]=a[h+1];
+							a[h+1]=tmp;
+						}
+					}
+				}
+				document.write(a);
+			}
+			
+			_maopao();*/
+			/*function fn(){
+				var a=[21,41,53,631,11,1,0];
+				for(var l=0;l<a.length;l++){
+					for(var i=0;i<a.length-1;i++){
+						if(a[i]<a[i+1]){
+							var tmp=null;
+							tmp=a[i];
+							a[i]=a[i+1];
+							a[i+1]=tmp;
+						}
+					}
+				}document.write(a);
+			}
+			fn();*/
+			
+			 /*   function sort(_arr){//选择排序
+            var _container=null;
+            for(var _flag=0;_flag<_arr.length-1;_flag++){
+                _cursor=_flag;
+                for(var i=_cursor+1;i<_arr.length;i++){
+                    if(_arr[_cursor]>_arr[i]){
+                        _cursor=i;
+                    }
+                }
+                _container=_arr[_flag];
+                _arr[_flag]=_arr[_cursor];
+                _arr[_cursor]=_container;
+            }
+            console.log(_arr);
+        }*/
+		
+		/*function fn(){
+		var tmp=null;
+		
+			var a=[21,41,53,631,11,1,0];
+			for(var h=0;h<a.length-1;h++){
+			var l=h;
+			for(var i=l+1;i<a.length;i++){
+				if(a[l]<a[i]){
+					l=i;
+				}
+				}
+				tmp=a[h];
+				a[h]=a[l];
+				a[l]=tmp;
+			}
+			document.writeln(a);
+		}
+		fn();*/
+		/*function fx(){
+		var a=[21,41,53,631,11,1,0];
+		for(var h=0;h<a.length-1;h++){
+			var l=h;
+			for(var i=l+1;i<a.length;i++){
+				if(a[l]<a[i]){
+					l=i;
+				}
+			}
+			var tmp=a[h];
+			a[h]=a[l];
+			a[l]=tmp;
+			}
+			document.write(a);
+		}
+		fx();*/
+		
+		
+		//冒泡排序
+		/*+function fn(){
+			var a=[9,8,7,6,5,4,3,2,1];
+			for(var l=0;l<a.length;l++){
+			for(var i=0;i<=a.length-1;i++){
+				if(a[i]>a[i+1]){
+					var tmp=a[i];
+					a[i]=a[i+1];
+					a[i+1]=tmp;
+				}}
+			}console.log(a);
+		}
+		fn();*/
+		
+		//选择排序
+		/*function _ar(){
+			var p=[];
+			for(var i=0;i<10;i++){
+				p[i]=Math.floor(Math.random()*9000+1000);
+			}
+			return p;
+		}
+		
+		
+		function fn(a){
+			//var a=[9,8,7,6,5,4,3,2,1];
+				
+			for(var h=0;h<a.length;h++){
+			var l=h;
+				for(var i=l+1;i<a.length;i++){
+					if(a[l]>a[i]){
+						l=i;
+					}
+				}
+				var tmp=a[h];
+				a[h]=a[l];
+				a[l]=tmp;
+			}
+			console.log(a);
+		}
+		function _aaa(){
+			var _arr=_ar();
+			fn(_arr);
+		}
+		_aaa();*/
+		
+		//二维数组
+		/*function fn(){
+			var a=[];
+			a[0]=[0,1];
+			a[1]=[1,1];
+			a[2]=[2,2,2];
+			a[3]=[3,3,3,3];
+			a[4]=[4,4,5,4,4];
+			a[4][2]=6
+			console.log(a[4][2]);
+		}
+		fn();*/
+		//JSON
+	
+		
+		
+		function fn(){
+			p=8;
+			document.writeln(p);
+		}
+		fn();
+		document.writeln(p);
+		</script>
+	</head>
+	<body>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body>
+</html>        

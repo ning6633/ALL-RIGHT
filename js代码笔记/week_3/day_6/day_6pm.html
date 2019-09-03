@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+    class Sport{
+        constructor(_target){
+            this.lv=_target;
+            this.timer=0;
+        }
+        animate(){
+            let _me=this;
+            _me.timer=window.setInterval(function(){
+                _me.lv.style.left=_me.lv.offsetLeft+10  +"px";
+                if(_me.lv.offsetLeft>=500){
+                    window.clearInterval(_me.timer);
+                }
+            },30);
+        }
+    }
+
+        function main(){
+           let _demo=document.getElementById("demo");
+           let _sport=new Sport(_demo);
+           _sport.animate();
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    <div id="demo" style="width: 100px;height: 100px;background:pink;position:absolute;"></div>
+    <div id="lady"></div>
+</body>
+</html>

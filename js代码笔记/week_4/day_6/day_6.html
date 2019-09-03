@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        #out{
+            width: 450px;
+            height: 670px;
+            margin: 10px auto;
+            border: 3px solid #ccc;
+            position: relative;
+        }
+        #top{
+            width: 450px;
+            height: 600px;
+            border-bottom: 3px solid #ccc;
+        }
+        #bottom{
+            width: 450px;
+            height: 65px;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        HTMLElement.prototype.css=function(_css){
+                    for(let k in _css){
+                        this.style[k]=_css[k];
+                    }
+                }
+        class Start{
+            constructor(_container,_list){
+                this.dom=_container;
+                this.top=document.getElementById("top");
+                this.btm=document.getElementById("bottom");
+                this.list=_list;
+                this.timer1=0;
+                this.index=0;
+                this.init();
+                }
+
+
+            create(){
+                let _link=document.createElement("a");
+
+                let _img=document.createElement("img");
+                _img.css({
+                    width:"450px",
+                    height:"600px",
+                    position:"absolute",
+                    //display:"none"
+                });
+                _img.src=this.list[this.list.length-1].src;
+                this.top.appendChild(_link);
+                this.top.children[0].appendChild(_img);
+                }
+
+            small(){
+                for(let i=0;i<this.list.length;i++){
+                    let _img=document.createElement("img");
+                    _img.css({
+                        width:"50px",
+                        height:"64px",
+                        float:"left",
+                    });
+                    _img.src=this.list[i].src;
+                    this.btm.appendChild(_img);
+                }
+            }
+            opacity(){
+                let _me=this;
+                let opa=0;
+                this.timer1=window.setInterval(function(){
+                    opa+=0.02;
+                        _me.dom.children[0].children[0].href=_me.list[_me.index].skip;
+                            _me.dom.children[0].children[0].children[0].src=_me.list[_me.index].src;
+                        _me.dom.children[0].children[0].children[0].style.opacity=opa;
+                        if(opa>=1){
+                            window.clearInterval(_me.timer1);
+                            opa=1;
+                            _me.index+=1;
+                            if(_me.index>_me.list.length-1){
+                                    _me.index=0;
+                                }
+                           
+                            _me.timer1=window.setInterval(function(){
+                                window.clearInterval(_me.timer1);
+                                _me.opacity();
+                                //console.log(_me.index);
+                            },1000);
+                        }
+                        
+                        
+                    },30);
+            }
+            events(){
+                let _images=this.btm.children;
+                let _me=this;
+                for(let i=0;i<_images.length;i++){
+                    _images[i].onmouseover=function(){
+                        window.clearInterval(_me.timer1);
+                        _me.top.children[0].children[0].src="images/"+i+".jpg";
+                        _me.top.children[0].children[0].style.opacity=1;
+                        //_me.opacity();
+                        this.onmouseout=function(){
+                        _me.opacity();
+                    }
+                    }
+                   
+                }
+            }
+
+                init(){
+                    
+                    
+                    this.small();
+                    this.create();
+                    this.opacity();
+                    this.events();
+                }
+            }
+
+
+        function main(){
+            var _list=[{
+                    src:"images/0.jpg",
+                    skip:"http://www.baidu.com",
+                },{
+                    src:"images/1.jpg",
+                    skip:"http://www.sina.com",
+                },{
+                    src:"images/2.jpg",
+                    skip:"http://www.jd.com",
+                },{
+                    src:"images/3.jpg",
+                    skip:"http://www.taobao.com",
+                },{
+                    src:"images/4.jpg",
+                    skip:"http://www.baidu.com",
+                },{
+                    src:"images/5.jpg",
+                    skip:"http://www.baidu.com",
+                },{
+                    src:"images/6.jpg",
+                    skip:"http://www.baidu.com",
+                },{
+                    src:"images/7.jpg",
+                    skip:"http://www.baidu.com",
+                },{
+                    src:"images/8.jpg",
+                    skip:"http://www.baidu.com",
+                },];
+            new Start(document.getElementById("out"),_list);
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    <div id="out">
+        <div id="top"></div>
+        <div id="bottom"></div>
+    </div>
+</body>
+</html>

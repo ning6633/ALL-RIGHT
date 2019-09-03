@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;padding: 0;
+        }
+        div{
+            width: 360px;
+            height: 480px;
+            margin: 50px auto;
+            border: 2px solid #000;
+            background:pink;
+            position: relative;
+            overflow: hidden;
+        }
+        span{
+            display: block;
+            width: 3960px;
+            height: 480px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        img{
+            width: 360px;
+            height: 480px;
+            float: left;
+            }
+    </style>
+    <script type="text/javascript">
+    
+        function picture(){
+            var _span=document.getElementsByTagName("body")[0].children[0].children[0];
+                
+               console.log(_span);    
+            var _timer=window.setInterval(function(){
+                _span.style.left=_span.offsetLeft-360+"px";
+                if(_span.offsetLeft==-3960){
+                    _span.style.left=0+"px";
+                }
+            },1000);
+                
+            }
+
+
+        function main(){
+           picture();
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+        <div>
+            <span>
+                    <img src="images/qianqian01.jpg" alt="">
+                    <img src="images/qianqian02.jpg" alt="">
+                    <img src="images/qianqian03.jpg" alt="">
+                    <img src="images/qianqian04.jpg" alt="">
+                    <img src="images/qianqian05.jpg" alt="">
+                    <img src="images/qianqian06.jpg" alt="">
+                    <img src="images/qianqian07.jpg" alt="">
+                    <img src="images/qianqian08.jpg" alt="">
+                    <img src="images/qianqian09.jpg" alt="">
+                    <img src="images/qianqian10.jpg" alt="">
+                    <img src="images/qianqian11.jpg" alt="">
+                    
+            </span>
+        </div>
+</body>
+</html>

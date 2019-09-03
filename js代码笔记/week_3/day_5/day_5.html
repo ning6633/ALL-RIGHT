@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        function main(){
+        // var _div=document.getElementsByTagName("div");
+        // for(let i=0;i<=_div.length;i++){
+        //     _div[i].onclick=function(){
+        //             console.log(i);
+        //         }
+        //}
+        //const  AS=12345;
+
+        // let [a,c]=[1,2];
+        // console.log(a,c);
+
+        //扩展运算符
+        // let _arr=[1,2,3,4,5,6,7,8,9,0,11];
+        // console.log(..._arr);
+
+        //``
+        // let number=123;
+        // let _str="qwe";
+        // let _tmp=`12138${_str}`;
+        // console.log(_tmp);
+        // let _set=new Set();
+        // _set.add(function(){
+        //     return "12345tyu";
+        // });
+        // _set.add("what");
+        // _set.add(1234567890);
+        // for(let i of _set){
+        //     console.log(i);
+        // }
+
+        // for(let p in _set){
+        //     console.log(p);
+        // }
+
+        //箭头函数
+        // {(a=>{
+        //     console.log(a);
+        // })(12);}
+
+        //set数据集
+        // let _set=new Set();
+        // _set.add(12435);
+        // _set.add(1243);
+        // _set.add(124);
+        // _set.add(12);
+        // _set.add(1);
+        // _set.delete(12);
+        // _set.clear();
+        // //console.log(_set.has(1));
+        // console.log(_set);
+
+        //map
+
+        // let _map=new Map();
+        // _map.set("one",1);
+        // _map.set("two",2);
+        // _map.set("three",3);
+        // _map.set("four",4);
+        // _map.set("five",5);
+        // console.log(_map.size);
+        // for(let [a,b] of _map){
+        //     console.log(a,b);          
+        // }
+
+        function* fn(){
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 4;
+            return 5;
+        }
+        var _w=fn();
+        
+        console.log(_w.next());
+        console.log(_w.next());
+        console.log(_w.next());
+        console.log(_w.next());
+        console.log(_w.next());
+        console.log(_w.next());
+    }
+    window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+<div id="qq">1</div>
+<div id="qq">2</div>
+<div id="qq">3</div>
+<div id="qq">4</div>
+<div id="qq">5</div>
+</html>

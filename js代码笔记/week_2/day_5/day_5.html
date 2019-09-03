@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<style>
+			body span{
+				display:block;width:10px;height:10px;border-radius:50%;background:green;position:absolute;
+			}
+			body{background:#000;opacity:0.9;}
+			div{}
+			#txt{width:250px;height:30px;border:none;background:#ccc;margin-top:60px;text-align:center;}
+			#paw{width:250px;height:30px;border:none;background:#ccc;margin-top:30px;text-align:center;}
+			#sub{width:50px;height:30px;background:#fff;margin-top:70px;text-align:center;}
+		</style>
+		<script type="text/javascript">
+			/*function _case1(){
+				for(var i=0;i<=400;i++){
+					document.write('<span style="left:'+i+'px;top:'+(100*Math.sin(2*Math.PI/100*i)+220)+'px;"></span>');
+				}
+			}
+			_case1();*/
+			
+			/*function _case2(){
+				for(var i=-300;i<=300;i++){
+				//y=3x^2+5x+8
+					document.write('<span style="position:absolute;left:'+(i+300)+'px;top:'+((3*i*i+5*i+8)+500)+'px;"></span>');
+				}
+			}
+			_case2();*/
+			function main(){
+			var _sub=document.getElementById("sub");
+			_sub.onclick=function(){
+				var _txt=document.getElementById("txt").value;
+				var _paw=document.getElementById("paw").value;
+				if(_txt==="111111"&&_paw==="111111"){
+					alert("欢迎光临");
+					window.location.href="user.html";
+				}else{
+					alert("输入错误");
+				}
+			};
+				document.getElementById("shang").onclick=function(){
+                // window.history.forward();
+                window.history.go(1);
+            }
+			}
+			window.onload=main;
+		</script>
+	</head>
+	<body>
+		<div style="margin:0 auto;background:#242e52;width:400px;height:300px;position:fixed;left:38%;top:25%;text-align:center;z-index:1;">
+			<input type="text" id="txt" placeholder="请输入账号"  /><br />
+			<input type="password" id="paw" placeholder="请输入密码" /><br />
+			<input type="submit" id="sub"  />
+			
+			
+		</div>
+	</body>
+</html>

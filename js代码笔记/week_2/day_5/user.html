@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<style>
+			*{margin:0;padding:0;}
+			body #header{width:100%;height:170px;background:purple;margin:0 auto;text-align:center;font-size:60px;line-height:70px;color:yellow;}
+			#lianjie img{width:50%;height:400px;}
+			#tu{font-size:20px;color:#000;}
+		</style>
+		<script type="text/javascript">
+		function main(){
+				document.getElementById("tu").onclick=function(){
+					window.location.href="tupian.html";
+				};
+				document.getElementById("shang").onclick=function(){
+                // window.history.forward();
+                window.history.go(-1);
+            }
+			}
+			window.onload=main;
+		</script>
+	</head>
+	<body>
+			<input id="shang" type="button" value="<--">
+		<div id="header"><span>澳门赌场上线啦！</span><br /><span>性感荷官在线发牌！</span></div>
+		<div id="lianjie"><img src="images/微信图片_20190319223614.jpg"><br /> 
+				<input type="submit" id="tu" value="年迈老人与邻国公主..."></div>
+	</body>
+</html>

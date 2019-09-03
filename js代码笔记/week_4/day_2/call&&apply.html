@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+         * call  &  apply 继承  区别
+         * apply 传参，必须以数组的格式传参
+         * call  传参，必须每一个参数分开
+        */
+        function Animal(_leg,_eye){
+            this.leg=_leg;
+            this.eye=_eye;
+        }
+        function Mosquito(){
+            this.fly=function(){
+                console.log("this animal can fly");
+            };
+        }
+
+
+
+
+
+
+        function main(){
+            var _mosquito=new Mosquito();
+            var _mosquito2=new Mosquito();
+            Animal.call(_mosquito,4,2);
+            Animal.apply(_mosquito2,[4,2]);
+            console.log(_mosquito,_mosquito2);
+
+            //call 和 apply 方法的使用
+            
+
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

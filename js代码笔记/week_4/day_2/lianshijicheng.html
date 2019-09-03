@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+    class Color{
+        constructor(){
+            this.color="black";
+        }
+    }
+    class Car extends Color{
+        constructor(){
+            super();
+            this.long="5m";
+        }
+    }
+    class Run extends Car{
+        constructor(){
+            super();
+        }
+        run(){
+            return "非常快";
+        }
+    }
+
+
+
+
+
+    function main(){
+        // var _car=new Car();
+        // console.log(_car.color);
+        console.log(new Run());
+    }
+    window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

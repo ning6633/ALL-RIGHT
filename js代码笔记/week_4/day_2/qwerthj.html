@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style type="text/css">
+        html,body{
+            margin: 0;padding: 0;
+        }
+        div{
+            width: 360px;
+            height: 480px;
+            margin: 50px auto;
+            border: 2px solid #000;
+            background:pink;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+
+
+
+        //8边形
+    function nine(){
+                let h,l;
+                for(h=-10;h<=10;h++){
+                    for(l=-10;l<=10;l++){
+                        if(Math.abs(l)+Math.abs(h)<=13){
+                            document.write("*");
+                        }else{
+                            document.write("-");
+                        }
+                    }
+                    document.write("<br />");
+                }
+            }
+
+            //二维数组求和
+            function sum(){
+                var _dimensional=[
+                        [63,14,68,29,74,96],
+                        [2,40,12,37,37,87],
+                        [43,18,33,54,34,56],
+                        [26,35,66,38,31,62],
+                        [9,66,95,74,42,93],
+                        [38,37,46,10,42,22]
+                    ];
+                    function dimensional(_dimensional){
+                        var _sum=0;
+                        //TODO:在空白处求出数组元素的总和
+                        for(var h=0;h<_dimensional.length;h++){
+                            for(var l=0;l<_dimensional[h].length;l++){
+                                _sum+=_dimensional[h][l];
+                            }
+                        }
+                         return _sum;
+                    }
+                    document.write(dimensional(_dimensional));
+            }
+
+
+            //轮播图
+            function picture(){
+            var _div=document.getElementsByTagName("body")[0].children[0];
+                
+                    var _img=document.createElement("img");
+                   
+                    _img.style.width="360px";
+                    _img.style.height="480px";
+                    _img.src="images/qianqian01.jpg";
+                    _div.appendChild(_img);
+            var i=2;
+            var _timer=window.setInterval(function(){
+                if(i<=9){
+                        _img.src="images/qianqian0"+i+".jpg";
+                    }else{
+                        _img.src="images/qianqian"+i+".jpg";
+                    }
+                    i++;
+                    if(i>11){
+                        i=1;
+                    }
+            },1000);
+                
+            }
+
+
+        function main(){
+            
+            //nine();
+            //sum();
+            picture();
+           
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<style type="text/css"></style>
+		<script type="text/javascript">
+		//创建一个可以随即出现的方块
+		function kuai(){
+			var _body=document.getElementsByTagName("body")[0];//找到body
+			//console.log(_body);
+			var _char="";
+			var _width=document.documentElement.clientWidth||document.body.clientWidth;
+			////_width=document.documentElement.clientWidth||document.body.clientWidth;
+			var _timer=window.setInterval(function(){
+				var _div=document.createElement("div");//创建div
+				
+				_div.style.width="100px";
+				_div.style.height="100px";
+				_div.style.background="rgba(255,182,193,0.3)";
+				_div.style.borderRadius="20px";
+				_div.style.position="absolute";
+				_div.style.textAlign="center";
+				_div.style.fontSize="50px";
+				_div.style.lineHeight="100px";
+				
+				_div.style.left=Math.floor((_width-100)*Math.random())+"px";
+				_char=String.fromCharCode(65+Math.floor(Math.random()*26));
+				_div.innerText=_char;
+				_body.appendChild(_div);
+				
+			},1000);
+			
+		}
+		//让随即出现的方块向下移动
+		function move(){
+		var _height=document.documentElement.clientHeight||document.body.clientHeight;
+		//console.log(_height);
+			var _kuai=document.getElementsByTagName("body")[0].children;
+			var _timer=window.setInterval(function(){
+				for(var i=0;i<=_kuai.length;i++){
+					_kuai[i].style.top=_kuai[i].offsetTop+2+"px";
+					if(_kuai[i].offsetTop>=_height-103){
+						//document.getElementsByTagName("body")[0].removeChild(_kuai[i]);
+						_kuai[i].style.top=_height-103+"px";
+					}
+				}
+			},1);
+		}
+		//键盘按下事件
+		function events(){
+			document.onkeydown=function(e){
+				var _code,_char;
+				var _body=document.getElementsByTagName("body")[0];
+				var _div=_body.children;
+		
+				e=e||window.event;
+				_code=e.keyCode||e.which;
+				_char=String.fromCharCode(_code);
+				for(var i=0;i<_div.length;i++){
+                    if(_div[i].innerText===_char){
+                        _body.removeChild(_div[i]);
+                        break;//阻止继续删除同样的字符
+                    }
+                }
+			};
+		}
+		function main(){
+				kuai();
+				move();
+				events();
+		}
+			window.onload=main;
+		</script>
+	</head>
+	<body></body>
+</html>

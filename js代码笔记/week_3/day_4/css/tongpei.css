@@ -1,0 +1,27 @@
+html,body,ul,ol,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,form,input,img,fieldset,legend,figure,figcaption{margin: 0;padding: 0;}
+h1,h2,h3,h4,h5,h6{font-size: 16px;font-weight: normal;}
+ol,ul,li{list-style: none;}
+b,strong{font-weight: normal;}
+i,em{font-style: normal;}
+a{text-decoration: none;}
+input{outline: none;}
+img{display: block;}
+.clear_fix:after{
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    overflow: hidden;
+}
+.clear_fix{
+    zoom:1;
+}
+@media all and (max-width:320px){
+	html{font-size:12px;}
+}
+@media all and (min-width:321px) and (max-width:375px){
+	html{font-size:14px;}
+}
+@media all and (min-width:376px){
+	html{font-size:16px;}

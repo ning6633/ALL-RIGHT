@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        HTMLElement.prototype.css=function(_css){
+            for(let _k in _css){
+                this.style[_k]=_css[_k];
+            }
+        }
+        class Big{
+            constructor(){
+                this.left=document.getElementById("left");
+                this.left_top=document.getElementById("left_top");
+                this.right=document.getElementById("right");
+                this.create();
+                this.active();
+            };
+            create(){
+                
+                    let _img=document.createElement("img");
+                    _img.css({
+                        width:"256px",
+                        height:"342px"
+                    });
+                    _img.src="images/qianqian01.jpg";
+                    this.left.appendChild(_img);
+                    let _span=document.createElement("span");
+                    _span.css({
+                        width:"64px",
+                        height:"85px",
+                        background:"rgba(0,0,0,0.3)",
+                        //rgba(0,0,0,0.3)
+                        display:"none",
+                        position:"absolute",
+                        left:"0px",
+                        
+                    });
+                    this.left.appendChild(_span);
+                    let _img2=document.createElement("img");
+                    _img2.css({
+                        width:"1280px",
+                        height:"1707px",
+                        position:"absolute",
+                        
+                    });
+                    _img.id="nav";
+                    _img2.src="images/qianqian01.jpg";
+                    this.right.appendChild(_img2);
+                    let _img3=document.createElement("img");
+                    _img3.css({
+                        width:"100px",
+                        height:"128px",
+                        float:"left"
+                    });
+                    _img3.src="images/qianqian01.jpg";
+                    this.left_top.appendChild(_img3);
+                    let _img4=document.createElement("img");
+                    _img4.css({
+                        width:"100px",
+                        height:"128px",
+                        float:"left"
+                    });
+                    _img4.src="images/qianqian02.jpg";
+                    this.left_top.appendChild(_img4);
+            };
+            active(){
+                let _me=this;
+                this.left.onmouseover=function(){
+                    _me.left.children[2].style.display="block";
+                    _me.right.style.display="block";
+                        _me.left.onmousemove=function(e){
+                            e=e||window.event;
+                            this.children[2].style.left=e.clientX-32+"px";
+                            this.children[2].style.top=e.clientY-43+"px";
+                            if(e.clientX>=224){
+                                this.children[2].style.left=192+"px";
+                            }
+                            if(e.clientX<=32){
+                                this.children[2].style.left=0+"px";
+                            }
+                            if(e.clientY<=43){
+                                this.children[2].style.top=0+"px";
+                            }
+                            if(e.clientY>=300){
+                                this.children[2].style.top=257+"px";
+                            }
+                            this.parentNode.children[1].children[0].style.left=-this.children[2].offsetLeft*4+"px";
+                            this.parentNode.children[1].children[0].style.top=-this.children[2].offsetTop*4+"px";
+                        };
+                    
+                };
+                this.left.onmouseout=function(){
+                    _me.left.children[2].style.display="none";
+                    _me.right.style.display="none";
+                    };
+                this.left_top.children[0].onmousedown=function(){
+                    document.getElementById("nav").src="images/qianqian01.jpg";
+                    _me.right.children[0].src="images/qianqian01.jpg";
+                }
+                this.left_top.children[1].onmousedown=function(){
+                    document.getElementById("nav").src="images/qianqian02.jpg";
+                    _me.right.children[0].src="images/qianqian02.jpg";
+                }
+            }
+        }
+
+        function main(){
+            new Big();
+            
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    <div id="left" style="width: 256px ; height: 470px; position: relative;">
+        <div id="left_top" style="width: 200px ; height: 128px; background:green;position: absolute;bottom: 0;">
+        </div>
+    </div>
+    <div id="right" style="width: 512px;height: 683px;position: absolute;left: 0;top: 0;right: 0;bottom: 0;margin: auto;background: teal;overflow: hidden;display: none;"></div>
+</body>
+</html>

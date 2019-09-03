@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+    function Animal(){
+            this.leg=2;
+            this.eye=3;
+            }
+    Animal.prototype.fly=function(){
+                return "can't fly";
+            };
+    function Cat(){
+        this.run=function(){
+            console.log("非常快");
+        }
+    }
+    function main(){
+            
+            
+            var _an=new Animal();
+            Cat.prototype=new Animal();//类的继承  Cat的类名.prototype=一个类
+            console.log(Cat.prototype===new Cat().__proto__);
+            console.log(new Cat().__proto__.fly());
+            console.log(Cat.prototype.fly());
+            console.log(new Cat().fly());
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

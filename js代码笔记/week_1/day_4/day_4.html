@@ -1,0 +1,179 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		var t,i,a,b,c,d,f;
+		/*function _test_1(){
+			document.write("为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？");
+			t=89;
+			document.write("<br />"+parseInt(89/24)+"天"+(89%24)+"小时");
+		}
+		_test_1();
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		function _test_2(){
+			document.write("小明要到美国旅游，可是那里的温度是以华氏度为单位记录的。他需要一个程序讲华氏温度80度转为摄氏温度为单位分别显示该温度。");
+			//C=5/9(F-32)
+			a=80;
+			i=5/9*(a-32);
+			document.write("<br />"+"华氏温度是："+a.toFixed(1)+" ℉"+"<br />"+"摄氏温度是："+i.toFixed(1)+" ℃");
+		}
+		_test_2();
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		function _test_3(){
+			document.write("打印100以内所有偶数的和");
+			for(i=0;i<=100;i+=2){
+				a+=i
+				}
+				document.write("<br />"+"和是："+a);
+		}
+		_test_3();
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		function _test_4(){
+			document.write("求出1-1/2+1/3-1/4…..1/100的和 var i=1; ");
+			a=0;
+		for(i=1;i<=100;i++){
+			if(i%2!=0){
+				a+=1/i
+			}else{
+				a-=1/i
+			}
+		}
+		document.write(a);
+		}
+		_test_4();
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		function _test_5(){
+			document.write("打印出1000-2000年中所有的闰年，并以每行四个数的形式输出");
+		
+			i=0;
+				for(a=1000;a<=2000;a+=4){
+					
+					
+					i++;
+					if(i%4==0){
+						document.write("<br />");
+					}
+					document.write(a);
+				}
+				
+		}
+		_test_5();
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		function _test_6(){
+			document.write("打印三角形、正方形、菱形、长方形、六边形");
+		}
+		_test_6();
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");
+		document.write("<br />");*/
+		function _one(){
+			a=89;
+			b=parseInt(89/24);
+			c=89%24;
+			document.write(b+"<br />"+c);
+		}
+		_one();
+		document.write("<br />"+"<br />"+"<br />");
+		function _two(){
+			//C=5/9(F-32)
+			f=80;
+			c=5/9*(f-32);
+			document.write(f+"<br />"+c.toFixed(1));
+		}
+		_two();
+		document.write("<br />"+"<br />"+"<br/>");
+		function  _three(){
+			for(a=0;a<=100;a+=2){
+				b+=a;
+			}
+			document.write(b);
+		}
+		_three();
+		document.write("<br />"+"<br />"+"<br/>");
+		function _four(){
+		a=0;
+			for(i=1;i<=100;i++){
+				if(i%2==0){
+					a-=1/i;
+				}else{
+					a+=1/i;
+				}
+			}
+			document.write(a);
+		}
+		_four();
+		document.write("<br />"+"<br />"+"<br/>");
+		function _five(){
+		a=0;
+			for(i=1000;i<=2000;i+=4){
+				if(i%100!==0&&i%4===0||i%400==0){
+					document.write(i);a++;
+				}if(a%4==0){
+					document.write("<br />");
+				}
+			}
+		}
+		_five();
+		document.write("<br />"+"<br />"+"<br/>");
+		function _six(){
+			for(a=1,b=1;a<=10;a++,b=2*b+1){
+				document.writeln(b);
+			}
+		}
+		_six();
+		document.write("<br />"+"<br />"+"<br/>");
+		function _seven(){
+			var h,l;
+			for(h=1;h<=10;h++){
+				for(l=1;l<=10;l++){
+					if(l+h<=10){
+						document.write("*");
+					}else{
+						document.write("-");
+					}
+				}
+				document.write("<br />");
+			}
+		}
+		_seven();
+		document.write("<br />"+"<br />"+"<br/>");
+		function _eight(){
+		var h,l;
+			for(h=-10;h<=10;h++){
+				for(l=-15;l<=15;l++){
+					if(Math.abs(h)+Math.abs(l)<=15){
+						document.write("*");
+					}else{
+						document.write("-");
+					}
+				}
+				document.write("<br />");
+			}
+		}
+		_eight();
+		document.write("<br/>"+"<br/>"+"<br />");
+		function _case_nine(s,g){
+			
+			document.write(s+g);
+	
+		}
+		_case_nine(1,2);
+		</script>
+	</head>
+	<body></body>
+</html>

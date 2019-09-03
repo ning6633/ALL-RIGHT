@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<style type="text/css">
+		div{
+			width:700px;height:1750px;border:2px solid red;margin:300 auto;overflow:hidden;
+		}
+		span{
+			display:block;width:700px;height:1750px;float:left;
+		}
+			span img{
+				width:700px;height:350px;
+			}
+		</style>
+		<script type="text/javascript">
+			function chuangjian(){
+					var _body=document.getElementsByTagName("body")[0];//console.log(_body);获取body元素  因为返回值是字符串集合 所以加上索引值
+					var _div=document.createElement("div");//console.log(_div);   创建一个div
+					_body.appendChild(_div);//将div添加到body里面
+					var _span=document.createElement("span");//创建一个span
+					_div.appendChild(_span);//将span添加到div里面
+					
+					var _fragment=document.createDocumentFragment();//创建文档碎片节点
+					for(var i=1;i<=5;i++){						//循环创建img标签 并插入图片
+					var _img=document.createElement("img");//创建img标签
+						_span.appendChild(_img);
+						_span.lastChild.src="images/_0"+i+".jpg";
+						_fragment.appendChild(_span.lastChild.cloneNode());//将图片复制保存下来一份
+					}
+					_span.appendChild(_fragment);
+					}
+			function timer(){
+				var _body=document.getElementsByTagName("body")[0];
+				var _container=_body.children[0]//div
+				//_container.scrollLeft=1000;
+				var _timer=window.setInterval(function(){
+				
+					_container.scrollTop=_container.scrollTop+1;//控制div的滚动条   
+					if(_container.scrollTop>=1750){
+						_container.scrollTop=0;
+					}
+				},1);
+			}
+				function main(){
+					chuangjian();
+					timer();
+				}
+				window.onload=main;
+		</script>
+	</head>
+	<body>
+		
+	
+	</body>
+</html>

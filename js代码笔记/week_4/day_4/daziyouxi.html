@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        HTMLElement.prototype.css=function(_css){
+            for(let _k in _css){
+                this.style[_k]=_css[_k];
+            }
+        }
+        class Game{
+            constructor(){
+                this.dom=document.getElementsByTagName("body")[0];
+                this.width=document.documentElement.clientWidth||document.body.clientWidth;
+                this.height=document.documentElement.clientHeight||document.body.clientHeight;
+                this.init();
+            };
+            create(){
+                
+                let _div=document.createElement("div");
+                _div.css({
+                    width:"50px",
+                    height:"50px",
+                    border:"2px solid #eee",
+                    background:"rgba("+Math.random()*225+","+Math.random()*225+","+Math.random()*225+","+"0.3)",
+                    position:"absolute",
+                    left:Math.floor((this.width-54)*Math.random())+"px",
+                    fontSize:"25px",
+                    lineHeight:"50px",
+                    textAlign:"center",
+                    borderRadius:"50%"
+                });
+                _div.innerText=String.fromCharCode(Math.floor(Math.random()*26+65));
+                this.dom.appendChild(_div);
+            };
+            init(){
+                let _me=this;
+                let _timer1=window.setInterval(function(){
+                   
+                    let _div=_me.dom.children;
+                    for(let i=0;i<_div.length;i++){
+                        _div[i].style.top=_div[i].offsetTop+2+"px";
+                    if(_div[i].offsetTop>=_me.height-55){
+                        _me.dom.removeChild(_div[i]);
+                    }
+                    
+                }
+                },10);
+                let _timer2=window.setInterval(function(){
+                    _me.create();
+                },1000);
+                window.onkeydown=function(e){
+                    e=e||window.event;
+                        for(let i=0;i<_me.dom.children.length;i++){
+                            if(_me.dom.children[i].innerText===String.fromCharCode(e.keyCode||e.which)){
+                            _me.dom.removeChild(_me.dom.children[i]);
+                            break;
+                        }
+                        }
+                    };
+            };
+        }
+
+        function main(){
+            new Game();
+        }
+        window.onload=main;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
